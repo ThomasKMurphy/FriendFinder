@@ -1,6 +1,6 @@
 var friendsArray = [{
   'name': 'SewerWeasel',
-  'photo': 'https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjt8JDF5KLWAhWG2SYKHe8VDz8QjRwIBw&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FWeasel&psig=AFQjCNFMn0lUO8qh5cYfZTxUGEG4PgHFcg&ust=1505413510014597',
+  'photo': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Mustela_nivalis_-British_Wildlife_Centre-4.jpg/220px-Mustela_nivalis_-British_Wildlife_Centre-4.jpg',
   'scores': [
     5,
     1,
