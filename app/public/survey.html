@@ -16,8 +16,8 @@
     <h4><strong>About You</strong></h4>
     <h5>Name</h5>
     <input type="text" name="" id="name" class="form-control" required="">
-    <h5>Link to Photo Image</h5>
-    <input type="text" name="" id="photo" class="form-control" required="">
+    <h5>Link to Picture</h5>
+    <input type="text" name="" id="pic" class="form-control" required="">
     <hr>
     <h4><strong>Question 1</strong></h4>
     <h5>Your mind is always buzzing with unexplored ideas and plans.</h5>
@@ -128,7 +128,8 @@
       </div>
     </footer>
   </div>
-  <div id="resultsModal" class="modal fade" role="dialog">
+
+  <div class="modal fade" role="document" id="resultsModal">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -137,7 +138,7 @@
         </div>
         <div class="modal-body">
           <h2 id="matchName"></h2>
-          <img id="matchImg" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+          <img id="matchPic" src="" alt="">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cool!</button>
@@ -145,6 +146,7 @@
       </div>
     </div>
   </div>
+
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
@@ -152,23 +154,23 @@
 
   $('#submit').on('click', function() {
     function validateForm() {
-      var isValid = true;
+      var validated = true;
       $('.form-control').each(function() {
         if ($(this).val() === '')
-          isValid = false;
+          validated = false;
       });
 
       $('.selectpicker').each(function() {
         if ($(this).val() === '')
-          isValid = false
+          validated = false
       })
-      return isValid;
+      return validated;
     }
 
     if (validateForm() === true) {
       var userData = {
         name: $('#name').val(),
-        photo: $('#photo').val(),
+        picture: $('#pic').val(),
         scores: [
           $('#q1').val(),
           $('#q2').val(),
@@ -187,7 +189,7 @@
 
       $.post(currentURL + '/api/friends', userData, function(data) {
         $('#matchName').text(data.name);
-        $('#matchImg').attr('src', data.photo);
+        $('#matchPic').attr('src', data.picture);
         $('#resultsModal').modal('toggle');
       });
     } else {
